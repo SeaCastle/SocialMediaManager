@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'SocialMediaManagerApp';
 
-  sites: string[] = [];
+  sites: string[] = ['Twitter', 'Facebook', 'Tumblr', 'Pinterest'];
 }
