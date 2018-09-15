@@ -1,3 +1,14 @@
-<p>
-  dashboard works!
-</p>
+<!-- 
+     Dashboard template. This template displays a web form 
+     that allows the user to enter in the information they
+     would like to post to social media
+-->
+
+<ul>
+  <li *ngFor="let site of sites">
+    <button class="siteBtn">{{site}}</button>
+  </li>
+</ul>
+<form id="postForm">
+  <textarea id="postBody" placeholder="Post text here"></textarea>
+</form>

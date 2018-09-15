@@ -1,0 +1,29 @@
+ul {
+    list-style-type: none;
+    width: 100%;
+    background-color: red;
+}
+
+.siteBtn :first-child {
+    height: 40px;
+    width: 100px;
+    border: none;
+    margin: 5px;
+    float: left;
+}
+
+textarea {
+    clear: left;
+    resize: none;
+}
+
+#postBody {
+    width: 80%;
+    height: 40%;
+}
+
+#postForm {
+    height: 500px;
+    width: 50%;
+    background-color: blue;
+}
