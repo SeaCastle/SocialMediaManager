@@ -1,29 +1,80 @@
+
+
+/*
+    ----------------------------------------------------------
+    Radio input styling for choosing which website to post to.
+    This is to make the radio buttons look like actual buttons
+    https://thestizmedia.com/radio-buttons-as-toggle-buttons-with-css/
+    ----------------------------------------------------------
+*/
 ul {
     list-style-type: none;
-    width: 100%;
-    background-color: red;
 }
 
-.siteBtn :first-child {
-    height: 40px;
-    width: 100px;
-    border: none;
-    margin: 5px;
+.switch-field {
+    overflow: hidden;
+}
+
+/* Put the radio button basically inside the text and make it 1px big so we can hide it */
+.switch-field input {
+    visibility: hidden;
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+
+.switch-field label {
     float: left;
 }
 
+.switch-field label {
+    display: inline-block;
+    width: 120px;
+    background-color: #e4e4e4;
+    font-size: 16px;
+    text-align: center;
+    padding: 6px 8px;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+.switch-field label:hover {
+    cursor: pointer;
+}
+
+/* 
+    This is needed because the label follows directly after the input tag in the html. Sounds
+    redundant because that's exatly what the css selector is saying but I'm writing this for
+    quick future reference.
+*/
+.switch-field input:checked + label {
+    background-color: #A5DC86;
+}
+
+#flex-container {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.block {
+    display: block;
+}
+
 textarea {
-    clear: left;
     resize: none;
 }
 
 #postBody {
     width: 80%;
     height: 40%;
+    margin: 5px 0 0 5px;
 }
 
 #postForm {
-    height: 500px;
-    width: 50%;
-    background-color: blue;
+    clear: both;
+    height: 350px;
+    width: 600px;
+    background-color: lightgray;
+    box-shadow: 5px 5px 5px gray;
 }

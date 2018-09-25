@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProcessDataService } from '../process-data.service';
+import { FormData } from '../form-data';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  sites: string[] = ['Twitter', 'Facebook', 'Tumblr', 'Pinterest'];
+  model = new FormData();
 
-  constructor() { }
+  sites: string[] = ['twitter', 'facebook', 'tumblr', 'pinterest'];
+
+  onSubmit() {
+    this.processDataService.logData(this.model);
+  }
+
+  constructor(private processDataService: ProcessDataService) { }
 
   ngOnInit() {
   }

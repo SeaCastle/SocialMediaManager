@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormData } from '../form-data';
 
 @Component({
   selector: 'app-post-preview',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-preview.component.css']
 })
 export class PostPreviewComponent implements OnInit {
+
+  @Input() fromData: FormData;
 
   constructor() { }
 

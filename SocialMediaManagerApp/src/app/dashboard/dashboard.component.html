@@ -1,14 +1,36 @@
 <!-- 
      Dashboard template. This template displays a web form 
      that allows the user to enter in the information they
-     would like to post to social media
+     would like to post to a social media site.
 -->
 
-<ul>
-  <li *ngFor="let site of sites">
-    <button class="siteBtn">{{site}}</button>
-  </li>
-</ul>
-<form id="postForm">
-  <textarea id="postBody" placeholder="Post text here"></textarea>
+<form id="postForm" (ngSubmit)="onSubmit()" #socialMediaForm="ngForm">
+  <!-- List of social media site buttons to help us establish which site they want to post to -->
+  <div class="switch-field">
+    <ul>
+      <li *ngFor="let site of sites">
+        <input type="radio" 
+               value="{{site}}" 
+               id="radio-{{site}}" 
+               [(ngModel)]="model.site"
+               name="chosen-site"/>
+        <label for="radio-{{site}}">{{site | titlecase}}</label>
+      </li>
+    </ul>
+  </div>
+  <!-- 
+      The main form that will contain the text they want to post as well as a picture if they want.
+      If they choose to post to twitter, the image will be ignored. 
+  -->
+  <label for="post-body" class="block">Description</label>
+  <textarea id="post-body" name="postText" placeholder="Post text here" [(ngModel)]="model.postText" #postText="ngModel"></textarea>
+  <!-- 
+    Is the URL even necessary? Can't they just include this in the textarea?
+  <label class="block">URL: <input type="url" name="url" placeholder="http://example.com"></label>
+   -->
+  <input id="user-image" type="file" name="user-image" [(ngModel)]="model.userImage" #userImage="ngModel"/>
+  <button class="block" type="submit">submit</button>
 </form>
+
+<!-- TODO: This needs to be in a div with the form when we refactor this to make it look nice. -->
+<app-post-preview></app-post-preview>
